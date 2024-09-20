@@ -1,6 +1,7 @@
 package com.katachallenge.bookstore.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +22,7 @@ public class CustomerOrder {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Customer user;
-
+    @NotNull
     private double totalPrice;
 
 

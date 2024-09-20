@@ -3,6 +3,7 @@ package com.katachallenge.bookstore.controller;
 import com.katachallenge.bookstore.model.Customer;
 import com.katachallenge.bookstore.service.OrderService;
 import com.katachallenge.bookstore.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,7 @@ public class CustomerController {
      * @return registered Customer.
      */
     @PostMapping("/register")
-    public ResponseEntity<Customer> register(@RequestBody Customer customer) {
+    public ResponseEntity<Customer> register(@Valid @RequestBody Customer customer) {
         Customer registerUser = userService.registerUser(customer);
         return new ResponseEntity<>(registerUser, HttpStatus.OK);
     }
@@ -50,7 +51,7 @@ public class CustomerController {
      * - HTTP 401 (UNAUTHORIZED) if login fails (e.g., invalid credentials).
      */
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Customer customer) {
+    public ResponseEntity<String> login(@Valid @RequestBody Customer customer) {
 
         String token = userService.loginUser(customer);
 

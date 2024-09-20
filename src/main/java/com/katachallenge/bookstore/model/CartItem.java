@@ -2,6 +2,7 @@ package com.katachallenge.bookstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,12 +23,14 @@ public class CartItem {
     private Long id;
 
     @ManyToOne
+    @NotNull
     private Book book;
 
     @ManyToOne
     @JsonIgnore
+    @NotNull
     private Customer user;
-
+    @NotNull
     private int quantity;
 
 }
