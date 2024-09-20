@@ -1,15 +1,15 @@
 package com.katachallenge.bookstore.controller;
 
 import com.katachallenge.bookstore.model.Customer;
+import com.katachallenge.bookstore.service.OrderService;
 import com.katachallenge.bookstore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 /**
  * REST Controller for managing customer-related operations such as registration and login.
@@ -24,7 +24,6 @@ public class CustomerController {
 
     /**
      * Constructor-based dependency injection for UserService.
-     *
      * @param userService the service responsible for user-related operations like registration and login.
      */
     @Autowired
@@ -34,9 +33,6 @@ public class CustomerController {
 
     /**
      * Endpoint for customer registration.
-     * <p>
-     * This method handles POST requests to '/api/customer/register' and registers a new customer.
-     *
      * @param customer the Customer object containing registration details (username, password, etc.).
      * @return registered Customer.
      */
@@ -48,10 +44,6 @@ public class CustomerController {
 
     /**
      * Endpoint for customer login.
-     * <p>
-     * This method handles POST requests to '/api/customer/login' and authenticates the customer.
-     * If authentication is successful, a JWT token is returned in the response header.
-     *
      * @param customer the Customer object containing login details (username and password).
      * @return ResponseEntity with:
      * - HTTP 200 (OK) if login is successful, along with the JWT token in the response headers.

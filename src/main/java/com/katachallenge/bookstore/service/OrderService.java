@@ -33,12 +33,6 @@ public class OrderService {
     /**
      * Places an order for the given user, calculates the total price of items in the user's cart,
      * and clears the cart after the order is placed.
-     * <p>
-     * This method first retrieves the user by their username and fetches the items from their cart.
-     * It then calculates the total cost based on the price and quantity of each item in the cart.
-     * The order is saved to the database, and the user's cart is cleared afterward.
-     * </p>
-     *
      * @param username the username of the user placing the order.
      * @throws UserNotFoundException if the user with the given username does not exist.
      */
