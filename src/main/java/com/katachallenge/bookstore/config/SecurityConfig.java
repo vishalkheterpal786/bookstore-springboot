@@ -51,7 +51,10 @@ public class SecurityConfig {
                                 "/api/customer/register",
                                 "/api/customer/login",
                                 "/h2-console/**",
-                                "/api/books/getAllBooks"
+                                "/api/books/getAllBooks",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html"
                         ).permitAll() // Allow public access to these endpoints
                         .anyRequest().authenticated() // All other endpoints require authentication
                 )
