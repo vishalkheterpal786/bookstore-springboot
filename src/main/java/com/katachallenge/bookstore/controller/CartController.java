@@ -31,16 +31,6 @@ public class CartController {
 
     /**
      * Endpoint to add an item to the cart.
-     * <p>
-     * This method handles POST requests to '/api/cart/addToCart' and adds a
-     * specified book to the authenticated user's cart.
-     *
-     * @param bookId   the ID of the book to be added to the cart.
-     * @param quantity the number of units of the book to be added.
-     * @param principal the authenticated user making the request.
-     * @return ResponseEntity with HTTP status:
-     *         - 200 (OK) if the book is successfully added to the cart.
-     *         - 400 (BAD REQUEST) if there is an error (e.g., invalid bookId).
      */
     @PostMapping("/addToCart")
     public ResponseEntity<String> addToCart(@RequestParam Long bookId,
